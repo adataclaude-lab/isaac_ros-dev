@@ -1,83 +1,211 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<robot name="arm_dualarm">
-  <!-- cuMotion XRDF Configuration for Dual Arm Robot -->
+format: "xrdf"
 
-  <!-- Collision spheres for cuMotion optimization -->
-  <curobo_config>
-    <!-- Left arm collision spheres -->
-    <collision_spheres>
-      <link name="base_link_L">
-        <sphere radius="0.05" x="0.0" y="0.0" z="0.0"/>
-      </link>
-      <link name="j1_Link_L">
-        <sphere radius="0.06" x="0.02" y="0.0" z="0.08"/>
-      </link>
-      <link name="j2_Link_L">
-        <sphere radius="0.05" x="0.0" y="-0.11" z="0.05"/>
-      </link>
-      <link name="j3_Link_L">
-        <sphere radius="0.05" x="0.0" y="0.07" z="0.02"/>
-      </link>
-      <link name="j4_Link_L">
-        <sphere radius="0.04" x="0.0" y="0.0" z="-0.05"/>
-      </link>
-      <link name="j5_Link_L">
-        <sphere radius="0.04" x="0.0" y="-0.07" z="0.02"/>
-      </link>
-      <link name="j6_Link_L">
-        <sphere radius="0.04" x="0.0" y="0.0" z="0.05"/>
-      </link>
-    </collision_spheres>
+format_version: 1.0
 
-    <!-- Right arm collision spheres -->
-    <collision_spheres>
-      <link name="base_link_R">
-        <sphere radius="0.05" x="0.0" y="0.0" z="0.0"/>
-      </link>
-      <link name="j1_Link_R">
-        <sphere radius="0.06" x="0.02" y="0.0" z="0.08"/>
-      </link>
-      <link name="j2_Link_R">
-        <sphere radius="0.05" x="0.0" y="-0.11" z="0.05"/>
-      </link>
-      <link name="j3_Link_R">
-        <sphere radius="0.05" x="0.0" y="0.07" z="0.02"/>
-      </link>
-      <link name="j4_Link_R">
-        <sphere radius="0.04" x="0.0" y="0.0" z="-0.05"/>
-      </link>
-      <link name="j5_Link_R">
-        <sphere radius="0.04" x="0.0" y="-0.07" z="0.02"/>
-      </link>
-      <link name="j6_Link_R">
-        <sphere radius="0.04" x="0.0" y="0.0" z="0.05"/>
-      </link>
-    </collision_spheres>
+default_joint_positions: 
+  joint_FL_swing: -0.0
+  joint_FR_swing: -0.0
+  joint_BL_swing: 0.0
+  joint_BR_swing: 0.0
+  joint_L: -0.0033
+  joint_R: -0.0033
+  j1_Joint_L: 0.0008
+  j1_Joint_R: 0.0015
+  joint_FL_caster: -0.0098
+  joint_FR_caster: -0.0098
+  joint_BL_caster: -0.0098
+  joint_BR_caster: -0.0098
+  j2_Joint_L: -0.0217
+  j2_Joint_R: 0.0217
+  j3_Joint_L: -0.0211
+  j3_Joint_R: 0.0211
+  j4_Joint_L: -0.0035
+  j4_Joint_R: 0.0035
+  j5_Joint_L: 0.029
+  j5_Joint_R: -0.0292
+  j6_Joint_L: 0.0005
+  j6_Joint_R: -0.0004
+  j6_fingerA_Joint_L: 0.0
+  j6_fingerB_Joint_L: 0.0002
+  j6_fingerA_Joint_R: 0.0
+  j6_fingerB_Joint_R: 0.0002
 
-    <!-- End-effector definitions -->
-    <end_effectors>
-      <end_effector name="left_ee" link="j6_Link_L"/>
-      <end_effector name="right_ee" link="j6_Link_R"/>
-    </end_effectors>
+cspace: 
+  joint_names: 
+    - "j1_Joint_L"
+    - "j1_Joint_R"
+    - "j2_Joint_L"
+    - "j2_Joint_R"
+    - "j3_Joint_L"
+    - "j3_Joint_R"
+    - "j4_Joint_L"
+    - "j4_Joint_R"
+    - "j5_Joint_L"
+    - "j5_Joint_R"
+    - "j6_Joint_L"
+    - "j6_Joint_R"
+  acceleration_limits: [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
+  jerk_limits: [10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000]
 
-    <!-- Joint groups for dual arm control -->
-    <joint_groups>
-      <group name="left_arm">
-        <joint name="j1_Joint_L"/>
-        <joint name="j2_Joint_L"/>
-        <joint name="j3_Joint_L"/>
-        <joint name="j4_Joint_L"/>
-        <joint name="j5_Joint_L"/>
-        <joint name="j6_Joint_L"/>
-      </group>
-      <group name="right_arm">
-        <joint name="j1_Joint_R"/>
-        <joint name="j2_Joint_R"/>
-        <joint name="j3_Joint_R"/>
-        <joint name="j4_Joint_R"/>
-        <joint name="j5_Joint_R"/>
-        <joint name="j6_Joint_R"/>
-      </group>
-    </joint_groups>
-  </curobo_config>
-</robot>
+collision: 
+  geometry: "auto_generated_collision_sphere_group"
+
+self_collision: 
+  geometry: "auto_generated_collision_sphere_group"
+  ignore: 
+    chassis_link: 
+      - "FL_Bracket_Link"
+      - "FR_Bracket_Link"
+      - "BL_Bracket_Link"
+      - "BR_Bracket_Link"
+      - "body_link"
+      - "L_Big_Wheel_Link"
+      - "R_Big_Wheel_Link"
+    FL_Bracket_Link: 
+      - "FL_Wheel_Link"
+      - "FR_Bracket_Link"
+      - "BL_Bracket_Link"
+      - "BR_Bracket_Link"
+      - "body_link"
+      - "L_Big_Wheel_Link"
+      - "R_Big_Wheel_Link"
+    FR_Bracket_Link: 
+      - "FR_Wheel_Link"
+      - "BL_Bracket_Link"
+      - "BR_Bracket_Link"
+      - "body_link"
+      - "L_Big_Wheel_Link"
+      - "R_Big_Wheel_Link"
+    BL_Bracket_Link: 
+      - "BL_Wheel_Link"
+      - "BR_Bracket_Link"
+      - "body_link"
+      - "L_Big_Wheel_Link"
+      - "R_Big_Wheel_Link"
+    BR_Bracket_Link: 
+      - "BR_Wheel_Link"
+      - "body_link"
+      - "L_Big_Wheel_Link"
+      - "R_Big_Wheel_Link"
+    base_link_L: 
+      - "j1_Link_L"
+      - "base_link_R"
+    j1_Link_L: 
+      - "j2_Link_L"
+    j2_Link_L: 
+      - "j3_Link_L"
+    j3_Link_L: 
+      - "j4_Link_L"
+    j4_Link_L: 
+      - "j5_Link_L"
+    j5_Link_L: 
+      - "j6_Link_L"
+    j6_Link_L: 
+      - "j6_fingerA_Link_L"
+      - "j6_fingerB_Link_L"
+    body_link: 
+      - "base_link_L"
+      - "base_link_R"
+      - "L_Big_Wheel_Link"
+      - "R_Big_Wheel_Link"
+    base_link_R: 
+      - "j1_Link_R"
+    j1_Link_R: 
+      - "j2_Link_R"
+    j2_Link_R: 
+      - "j3_Link_R"
+    j3_Link_R: 
+      - "j4_Link_R"
+    j4_Link_R: 
+      - "j5_Link_R"
+    j5_Link_R: 
+      - "j6_Link_R"
+    j6_Link_R: 
+      - "j6_fingerA_Link_R"
+      - "j6_fingerB_Link_R"
+    L_Big_Wheel_Link: 
+      - "R_Big_Wheel_Link"
+    j6_fingerA_Link_L: 
+      - "j6_fingerB_Link_L"
+    j6_fingerA_Link_R: 
+      - "j6_fingerB_Link_R"
+
+geometry: 
+  auto_generated_collision_sphere_group: 
+    spheres: 
+      Dual_arm_Robot_ASM_ros2/j1_Link_L: 
+        - center: [0.0, 0.0, 0.061]
+          radius: 0.06
+        - center: [-0.002, 0.0, 0.002]
+          radius: 0.06
+        - center: [-0.001, 0.0, 0.041]
+          radius: 0.06
+        - center: [-0.001, 0.0, 0.021]
+          radius: 0.06
+      Dual_arm_Robot_ASM_ros2/j2_Link_L: 
+        - center: [0.001, -0.01, 0.058]
+          radius: 0.06
+        - center: [0.003, -0.077, 0.068]
+          radius: 0.06
+        - center: [0.004, -0.121, 0.067]
+          radius: 0.06
+        - center: [0.0, 0.0, 0.0]
+          radius: 0.06
+        - center: [0.002, -0.044, 0.063]
+          radius: 0.06
+        - center: [0.003, -0.108, 0.068]
+          radius: 0.06
+      Dual_arm_Robot_ASM_ros2/j3_Link_L: 
+        - center: [-0.002, 0.04, -0.0]
+          radius: 0.06
+        - center: [-0.001, 0.008, 0.014]
+          radius: 0.06
+        - center: [0.0, 0.0, 0.0]
+          radius: 0.06
+      Dual_arm_Robot_ASM_ros2/j4_Link_L: 
+        - center: [-0.0, -0.001, 0.024]
+          radius: 0.05
+        - center: [-0.0, -0.001, 0.013]
+          radius: 0.05
+      Dual_arm_Robot_ASM_ros2/j5_Link_L: 
+        - center: [-0.003, -0.04, -0.0]
+          radius: 0.05
+        - center: [-0.001, -0.015, -0.0]
+          radius: 0.05
+        - center: [0.0, 0.0, 0.0]
+          radius: 0.05
+      Dual_arm_Robot_ASM_ros2/j6_Link_L: 
+        - center: [0.001, 0.003, -0.036]
+          radius: 0.05
+        - center: [0.0, 0.0, -0.004]
+          radius: 0.05
+      Dual_arm_Robot_ASM_ros2/j1_Link_R: 
+        - center: [-0.0, 0.0, 0.06]
+          radius: 0.06
+        - center: [-0.0, 0.0, 0.0]
+          radius: 0.06
+      Dual_arm_Robot_ASM_ros2/j2_Link_R: 
+        - center: [-0.001, -0.01, 0.042]
+          radius: 0.06
+        - center: [0.0, 0.0, 0.0]
+          radius: 0.06
+      Dual_arm_Robot_ASM_ros2/j3_Link_R: 
+        - center: [0.001, -0.0, 0.052]
+          radius: 0.06
+        - center: [0.002, 0.045, -0.0]
+          radius: 0.06
+        - center: [0.0, 0.0, 0.0]
+          radius: 0.06
+      Dual_arm_Robot_ASM_ros2/j4_Link_R: 
+        - center: [0.0, -0.0, -0.002]
+          radius: 0.05
+      Dual_arm_Robot_ASM_ros2/j5_Link_R: 
+        - center: [0.001, -0.007, -0.007]
+          radius: 0.05
+        - center: [0.003, -0.038, -0.015]
+          radius: 0.05
+      Dual_arm_Robot_ASM_ros2/j6_Link_R: 
+        - center: [-0.0, -0.001, -0.013]
+          radius: 0.05
+        - center: [0.0, 0.0, 0.0]
+          radius: 0.05
