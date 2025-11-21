@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot name="arm_dualarm">
+  <!-- cuMotion XRDF Configuration for Dual Arm Robot -->
+
+  <!-- Collision spheres for cuMotion optimization -->
+  <curobo_config>
+    <!-- Left arm collision spheres -->
+    <collision_spheres>
+      <link name="base_link_L">
+        <sphere radius="0.05" x="0.0" y="0.0" z="0.0"/>
+      </link>
+      <link name="j1_Link_L">
+        <sphere radius="0.06" x="0.02" y="0.0" z="0.08"/>
+      </link>
+      <link name="j2_Link_L">
+        <sphere radius="0.05" x="0.0" y="-0.11" z="0.05"/>
+      </link>
+      <link name="j3_Link_L">
+        <sphere radius="0.05" x="0.0" y="0.07" z="0.02"/>
+      </link>
+      <link name="j4_Link_L">
+        <sphere radius="0.04" x="0.0" y="0.0" z="-0.05"/>
+      </link>
+      <link name="j5_Link_L">
+        <sphere radius="0.04" x="0.0" y="-0.07" z="0.02"/>
+      </link>
+      <link name="j6_Link_L">
+        <sphere radius="0.04" x="0.0" y="0.0" z="0.05"/>
+      </link>
+    </collision_spheres>
+
+    <!-- Right arm collision spheres -->
+    <collision_spheres>
+      <link name="base_link_R">
+        <sphere radius="0.05" x="0.0" y="0.0" z="0.0"/>
+      </link>
+      <link name="j1_Link_R">
+        <sphere radius="0.06" x="0.02" y="0.0" z="0.08"/>
+      </link>
+      <link name="j2_Link_R">
+        <sphere radius="0.05" x="0.0" y="-0.11" z="0.05"/>
+      </link>
+      <link name="j3_Link_R">
+        <sphere radius="0.05" x="0.0" y="0.07" z="0.02"/>
+      </link>
+      <link name="j4_Link_R">
+        <sphere radius="0.04" x="0.0" y="0.0" z="-0.05"/>
+      </link>
+      <link name="j5_Link_R">
+        <sphere radius="0.04" x="0.0" y="-0.07" z="0.02"/>
+      </link>
+      <link name="j6_Link_R">
+        <sphere radius="0.04" x="0.0" y="0.0" z="0.05"/>
+      </link>
+    </collision_spheres>
+
+    <!-- End-effector definitions -->
+    <end_effectors>
+      <end_effector name="left_ee" link="j6_Link_L"/>
+      <end_effector name="right_ee" link="j6_Link_R"/>
+    </end_effectors>
+
+    <!-- Joint groups for dual arm control -->
+    <joint_groups>
+      <group name="left_arm">
+        <joint name="j1_Joint_L"/>
+        <joint name="j2_Joint_L"/>
+        <joint name="j3_Joint_L"/>
+        <joint name="j4_Joint_L"/>
+        <joint name="j5_Joint_L"/>
+        <joint name="j6_Joint_L"/>
+      </group>
+      <group name="right_arm">
+        <joint name="j1_Joint_R"/>
+        <joint name="j2_Joint_R"/>
+        <joint name="j3_Joint_R"/>
+        <joint name="j4_Joint_R"/>
+        <joint name="j5_Joint_R"/>
+        <joint name="j6_Joint_R"/>
+      </group>
+    </joint_groups>
+  </curobo_config>
+</robot>
