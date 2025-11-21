@@ -3,7 +3,7 @@ moveit_setup_assistant_config:
     package: dualarm_description
     relative_path: urdf/arm_dualarm.urdf
   srdf:
-    relative_path: config/RobotArm_Left.srdf
+    relative_path: config/arm_dualarm.srdf
   package_settings:
     author_name: Kevincc_Su
     author_email: Kevincc_Su@adata.com
