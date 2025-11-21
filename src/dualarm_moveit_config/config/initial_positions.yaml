@@ -1,15 +1,16 @@
 # Default initial positions for arm_dualarm's ros2_control fake system
+# These values match the 'initial' group_state defined in arm_dualarm.srdf
 
 initial_positions:
-  j1_Joint_L: 0
-  j1_Joint_R: 0
-  j2_Joint_L: 0
-  j2_Joint_R: 0
-  j3_Joint_L: 0
-  j3_Joint_R: 0
-  j4_Joint_L: 0
-  j4_Joint_R: 0
-  j5_Joint_L: 0
-  j5_Joint_R: 0
-  j6_Joint_L: 0
-  j6_Joint_R: 0
+  j1_Joint_L: 0.0
+  j2_Joint_L: 0.876
+  j3_Joint_L: 1.7713
+  j4_Joint_L: 0.0
+  j5_Joint_L: -0.3544
+  j6_Joint_L: 0.0
+  j1_Joint_R: 0.0
+  j2_Joint_R: -0.8538
+  j3_Joint_R: -1.8137
+  j4_Joint_R: 0.0
+  j5_Joint_R: 0.3139
+  j6_Joint_R: 0.0

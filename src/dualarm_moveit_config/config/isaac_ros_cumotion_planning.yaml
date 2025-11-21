@@ -8,5 +8,5 @@ start_state_max_bounds_error: 0.1
 num_steps: 32
 
 robot_description: robot_description
-xrdf_path: /workspaces/isaac_ros-dev/src/dualarm_description/xrdf/dualarm.xrdf
-urdf_path: /workspaces/isaac_ros-dev/src/dualarm_description/urdf/2026_GTC_Robot_1120.urdf
+xrdf_path: /home/user/isaac_ros-dev/src/dualarm_description/xrdf/dualarm.xrdf
+urdf_path: /home/user/isaac_ros-dev/src/dualarm_description/urdf/arm_dualarm.urdf

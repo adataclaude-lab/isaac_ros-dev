@@ -20,7 +20,7 @@ def generate_launch_description():
 
     declare_robot_urdf = DeclareLaunchArgument(
         'robot_urdf',
-        default_value=os.path.join(isaac_ws, 'src', 'dualarm_description', 'urdf', '2026_GTC_Robot_1120.urdf'),
+        default_value=os.path.join(isaac_ws, 'src', 'dualarm_description', 'urdf', 'arm_dualarm.urdf'),
         description='Path to dual-arm robot URDF file'
     )
 
