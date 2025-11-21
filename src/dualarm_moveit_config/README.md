@@ -2,6 +2,39 @@
 
 這個套件提供了雙手臂機器人的 MoveIt 配置，支援透過 cuMotion 在 RViz 和 Omniverse 中進行軌跡規劃和控制。
 
+## 快速開始
+
+### 建置套件
+
+在使用此套件之前，您需要先建置它：
+
+```bash
+# 進入工作空間
+cd /workspaces/isaac_ros-dev  # 或 /home/user/isaac_ros-dev
+
+# 使用建置腳本（推薦）
+./build_workspace.sh
+
+# 或手動建置
+source /opt/ros/humble/setup.bash
+colcon build --packages-select dualarm_description dualarm_moveit_config --symlink-install
+
+# 載入工作空間
+source install/setup.bash
+```
+
+### 驗證安裝
+
+建置完成後，驗證套件是否正確安裝：
+
+```bash
+# 檢查套件是否可找到
+ros2 pkg list | grep dualarm_moveit_config
+
+# 列出可用的 launch 檔案
+ros2 pkg prefix dualarm_moveit_config
+```
+
 ## 套件結構
 
 ```
