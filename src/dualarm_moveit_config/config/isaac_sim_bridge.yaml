@@ -1,0 +1,42 @@
+# Isaac Sim ROS Bridge 配置
+isaac_sim_bridge:
+  ros__parameters:
+    # Joint State 發布頻率
+    joint_state_publish_rate: 100.0
+    
+    # 關節對應
+    joint_mappings:
+      # 左臂
+      - ros_joint: "j1_Joint_L"
+        isaac_joint: "/World/Robot/left_arm/j1"
+      - ros_joint: "j2_Joint_L"
+        isaac_joint: "/World/Robot/left_arm/j2"
+      - ros_joint: "j3_Joint_L"
+        isaac_joint: "/World/Robot/left_arm/j3"
+      - ros_joint: "j4_Joint_L"
+        isaac_joint: "/World/Robot/left_arm/j4"
+      - ros_joint: "j5_Joint_L"
+        isaac_joint: "/World/Robot/left_arm/j5"
+      - ros_joint: "j6_Joint_L"
+        isaac_joint: "/World/Robot/left_arm/j6"
+      
+      # 右臂
+      - ros_joint: "j1_Joint_R"
+        isaac_joint: "/World/Robot/right_arm/j1"
+      - ros_joint: "j2_Joint_R"
+        isaac_joint: "/World/Robot/right_arm/j2"
+      - ros_joint: "j3_Joint_R"
+        isaac_joint: "/World/Robot/right_arm/j3"
+      - ros_joint: "j4_Joint_R"
+        isaac_joint: "/World/Robot/right_arm/j4"
+      - ros_joint: "j5_Joint_R"
+        isaac_joint: "/World/Robot/right_arm/j5"
+      - ros_joint: "j6_Joint_R"
+        isaac_joint: "/World/Robot/right_arm/j6"
+    
+    # 訂閱 MoveIt 的 joint commands
+    subscribe_joint_commands: true
+    joint_command_topic: "/joint_trajectory_controller/joint_trajectory"
+    
+    # 發布到 Isaac Sim
+    publish_to_isaac: true

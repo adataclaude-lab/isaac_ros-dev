@@ -1,0 +1,25 @@
+moveit_setup_assistant_config:
+  urdf:
+    package: dualarm_description
+    relative_path: urdf/arm_dualarm.urdf
+  srdf:
+    relative_path: config/RobotArm_Left.srdf
+  package_settings:
+    author_name: Kevincc_Su
+    author_email: Kevincc_Su@adata.com
+    generated_timestamp: 1763632995
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity
+  modified_urdf:
+    xacros:
+      - control_xacro
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity

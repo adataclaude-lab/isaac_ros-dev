@@ -1,0 +1,20 @@
+# ==== build / 安裝 / log 產物 ====
+build/
+install/
+log/
+logs/
+
+# CMake / build system 雜物
+**/CMakeFiles/
+**/cmake-build-*/
+
+# ==== ROS bag / MCAP / DB3 log 檔 ====
+*.bag
+*.mcap
+*.db3
+rosbag2_*/
+
+# ==== IDE / 工具 ====
+.vscode/
+.idea/
+.DS_Store

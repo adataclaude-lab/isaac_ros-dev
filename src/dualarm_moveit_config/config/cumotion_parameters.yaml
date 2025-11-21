@@ -1,0 +1,23 @@
+cumotion_planner_node:
+  ros__parameters:
+    workspace_file_path: ''
+    
+    grid_center_m: [0.0, 0.0, 0.6]
+    grid_size_m: [2.0, 2.0, 1.5]
+    
+    joint_states_topic: "/joint_states"
+    
+    # 雙臂配置 - 設定兩個 tool frames
+    tool_frames: ["j6_Link_L", "j6_Link_R"]
+    
+    esdf_service_name: "/nvblox_node/get_esdf_and_gradient"
+    workspace_bounds_frame: "Dual_arm_Robot_Entire"
+    
+    override_moveit_scaling_factors: false
+    enable_curobo_debug_mode: false
+    
+    num_ik_seeds: 1024
+    num_graph_seeds: 64
+    max_iterations: 4096
+    collision_padding_m: 0.02
+    constraint_test_steps: 10

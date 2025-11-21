@@ -1,0 +1,24 @@
+cumotion_planner_node:
+  ros__parameters:
+    # 如果沒有 workspace_file_path，就用 grid_center_m + grid_size_m
+    workspace_file_path: ''  # 空字串 = 不用外部檔案
+
+    grid_center_m: [0.0, 0.0, 0.6]   # 依你場景調整
+    grid_size_m:   [1.5, 1.5, 1.0]
+
+    # 下面這些是 cuMotion 官網有列出來的常用參數，可以先用預設
+    joint_states_topic: "/joint_states"
+    tool_frame: "j6_Link_L"              # 改成你 MoveIt SRDF 裡的 end effector frame
+
+    esdf_service_name: "/nvblox_node/get_esdf_and_gradient"
+    workspace_bounds_frame: "base_link"
+
+    override_moveit_scaling_factors: false
+    enable_curobo_debug_mode: false
+
+    # 你原本想調的 IK / graph / collision 參數也放這裡
+    num_ik_seeds: 1024
+    num_graph_seeds: 64
+    max_iterations: 4096
+    collision_padding_m: 0.02
+    constraint_test_steps: 10

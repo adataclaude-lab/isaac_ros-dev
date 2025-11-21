@@ -1,0 +1,12 @@
+planning_plugin: isaac_ros_cumotion_moveit/CumotionPlanner
+request_adapters: >-
+  default_planner_request_adapters/FixWorkspaceBounds
+  default_planner_request_adapters/FixStartStateBounds
+  default_planner_request_adapters/FixStartStateCollision
+  default_planner_request_adapters/FixStartStatePathConstraints
+start_state_max_bounds_error: 0.1
+num_steps: 32
+
+robot_description: robot_description
+xrdf_path: /workspaces/isaac_ros-dev/src/dualarm_description/xrdf/dualarm.xrdf
+urdf_path: /workspaces/isaac_ros-dev/src/dualarm_description/urdf/2026_GTC_Robot_1120.urdf

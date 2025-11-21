@@ -1,0 +1,12 @@
+planning_plugin: isaac_ros_cumotion_moveit/CumotionPlanner
+request_adapters: >-
+  default_planner_request_adapters/FixWorkspaceBounds
+  default_planner_request_adapters/FixStartStateBounds
+  default_planner_request_adapters/FixStartStateCollision
+  default_planner_request_adapters/FixStartStatePathConstraints
+start_state_max_bounds_error: 0.1
+num_steps: 32
+
+robot_description: robot_description               # 一般 MoveIt 參數 key
+xrdf_path: /workspaces/isaac_ros-dev/src/arm_left_description/xrdf/arm_left.xrdf
+urdf_path: /workspaces/isaac_ros-dev/src/arm_left_description/urdf/arm_left.urdf

@@ -1,0 +1,96 @@
+format: "xrdf"
+
+format_version: 1.0
+
+default_joint_positions: 
+  j3_Joint_L: 1e-04
+  j4_Joint_L: -0.0
+  j2_Joint_L: 0.0
+  j5_Joint_L: -0.0
+  j1_Joint_L: 0.0
+  j6_Joint_L: 0.0
+
+cspace: 
+  joint_names: 
+    - "j3_Joint_L"
+    - "j4_Joint_L"
+    - "j2_Joint_L"
+    - "j5_Joint_L"
+    - "j1_Joint_L"
+    - "j6_Joint_L"
+  acceleration_limits: [10, 10, 10, 10, 10, 10]
+  jerk_limits: [10000, 10000, 10000, 10000, 10000, 10000]
+
+tool_frames: ["j6_Link_L"]
+
+kinematics:
+  base_link: "RobotArm_Left"
+  ignore_joints:
+    - "j6_fingerA_Joint_L"
+    - "j6_fingerB_Joint_L"
+
+collision: 
+  geometry: "auto_generated_collision_sphere_group"
+
+self_collision: 
+  geometry: "auto_generated_collision_sphere_group"
+  ignore: 
+    base_link_L: 
+      - "j1_Link_L"
+    j1_Link_L: 
+      - "j2_Link_L"
+    j2_Link_L: 
+      - "j3_Link_L"
+    j3_Link_L: 
+      - "j4_Link_L"
+    j4_Link_L: 
+      - "j5_Link_L"
+    j5_Link_L: 
+      - "j6_Link_L"
+    j6_Link_L: 
+      - "j6_fingerA_Link_L"
+      - "j6_fingerB_Link_L"
+    j6_fingerA_Link_L: 
+      - "j6_fingerB_Link_L"
+
+geometry: 
+  auto_generated_collision_sphere_group: 
+    spheres: 
+      j2_Link_L: 
+        - center: [0.002, 0.042, -0.009]
+          radius: 0.05
+        - center: [-0.0, 0.0, -0.014]
+          radius: 0.05
+        - center: [0.0, 0.002, 0.019]
+          radius: 0.05
+      j1_Link_L: 
+        - center: [-0.0, -0.0, 0.046]
+          radius: 0.05
+        - center: [-0.0, -0.0, 0.013]
+          radius: 0.05
+        - center: [0.0, 0.0, -0.008]
+          radius: 0.05
+      j3_Link_L: 
+        - center: [-0.0, 0.0, 0.026]
+          radius: 0.05
+        - center: [0.0, 0.0, 0.0]
+          radius: 0.05
+        - center: [0.0, 0.032, -0.0]
+          radius: 0.05
+      j4_Link_L: 
+        - center: [0.0, 0.0, 0.043]
+          radius: 0.05
+        - center: [0.0, 0.0, 0.0]
+          radius: 0.05
+      j5_Link_L: 
+        - center: [-0.001, 0.003, 0.042]
+          radius: 0.05
+        - center: [-0.0, -0.048, 0.001]
+          radius: 0.05
+        - center: [0.0, 0.0, 0.0]
+          radius: 0.05
+      j6_Link_L: 
+        - center: [0.0, 0.0, 0.0]
+          radius: 0.05
+        - center: [-0.0, -0.0, -0.036]
+          radius: 0.05

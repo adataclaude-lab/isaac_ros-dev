@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot name="RobotArm_Left">
+  <joint name="j1_Joint_L" type="revolute">
+    <origin xyz="0. 0. 0.0485" rpy="0. 0. -3.1415854"/>
+    <parent link="RobotArm_Left"/>
+    <child link="j1_Link_L"/>
+    <axis xyz="0. 0. 1."/>
+    <limit lower="-3.0543262" upper="3.0543262" effort="340282346638528859811704183484516925440." velocity="0.8726646"/>
+  </joint>
+  <joint name="j2_Joint_L" type="revolute">
+    <origin xyz="0.041 0. 0.1685" rpy="-1.5708 -0.0000001 1.5708 "/>
+    <parent link="j1_Link_L"/>
+    <child link="j2_Link_L"/>
+    <axis xyz="0. 0. 1."/>
+    <limit lower="-2.0071286" upper="2.0071286" effort="340282346638528859811704183484516925440." velocity="0.8726646"/>
+  </joint>
+  <joint name="j3_Joint_L" type="revolute">
+    <origin xyz="0. -0.223 -0.002" rpy="-0.0000001 -0. 3.1415854"/>
+    <parent link="j2_Link_L"/>
+    <child link="j3_Link_L"/>
+    <axis xyz="0. 0. 1."/>
+    <limit lower="-1.9198622" upper="1.9198622" effort="340282346638528859811704183484516925440." velocity="0.8726646"/>
+  </joint>
+  <joint name="j4_Joint_L" type="revolute">
+    <origin xyz="-0. 0.1379999 0.043 " rpy="-1.5613122 -1.5707927 3.1321123"/>
+    <parent link="j3_Link_L"/>
+    <child link="j4_Link_L"/>
+    <axis xyz="0. 0. 1."/>
+    <limit lower="-3.0543262" upper="3.0543262" effort="340282346638528859811704183484516925440." velocity="0.8726646"/>
+  </joint>
+  <joint name="j5_Joint_L" type="revolute">
+    <origin xyz="0.041488 0.0009849 -0.0675 " rpy="1.5708 -0.0000001 -1.5471 "/>
+    <parent link="j4_Link_L"/>
+    <child link="j5_Link_L"/>
+    <axis xyz="0. 0. 1."/>
+    <limit lower="-1.8325957" upper="1.8325957" effort="340282346638528859811704183484516925440." velocity="0.8726646"/>
+  </joint>
+  <joint name="j6_Joint_L" type="revolute">
+    <origin xyz="0. -0.137 0.043" rpy="1.5704987 1.5471071 -0.0003013"/>
+    <parent link="j5_Link_L"/>
+    <child link="j6_Link_L"/>
+    <axis xyz="0. 0. 1."/>
+    <limit lower="-6.2831853" upper="6.2831853" effort="340282346638528859811704183484516925440." velocity="0.8726646"/>
+  </joint>
+  <link name="RobotArm_Left">
+    <visual>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="package://arm_left_description/meshes/base_link_02_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="package://arm_left_description/meshes/base_link_02_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="j1_Link_L">
+    <inertial>
+      <origin xyz="0.02283 -0.0000001 0.07922 " rpy="0. 0. 0."/>
+      <mass value="1.071"/>
+      <inertia ixx="0.0033977" ixy="0." ixz="-0.0011756" iyy="0.0041143" iyz="-0." izz="0.0018011"/>
+    </inertial>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="package://arm_left_description/meshes/j1_Link_02_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+      	<mesh filename="package://arm_left_description/meshes/j1_Link_02_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="j2_Link_L">
+    <inertial>
+      <origin xyz="0. -0.1115 0.053099" rpy="0. 0. 0."/>
+      <mass value="1.8748"/>
+      <inertia ixx="0.017658" ixy="0." ixz="0." iyy="0.002303" iyz="0." izz="0.017242"/>
+    </inertial>
+    <visual>
+      <origin xyz="0. 0. -0." rpy="0. -0. 0."/>
+      <geometry>
+        <mesh filename="package://arm_left_description/meshes/j2_Link_02_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0. 0. -0." rpy="0. -0. 0."/>
+      <geometry>
+        <mesh filename="package://arm_left_description/meshes/j2_Link_02_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="j3_Link_L">
+    <inertial>
+      <origin xyz="-0.0000001 0.070277 0.015242 " rpy="0. 0. 0."/>
+      <mass value="0.76714"/>
+      <inertia ixx="0.0023668" ixy="0." ixz="-0." iyy="0.0011702" iyz="-0.000731" izz="0.0018731"/>
+    </inertial>
+    <visual>
+      <origin xyz="0. -0. -0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="package://arm_left_description/meshes/j3_Link_02_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0. -0. -0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="package://arm_left_description/meshes/j3_Link_02_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="j4_Link_L">
+    <inertial>
+      <origin xyz="-0.0037368 -0.0000883 -0.055958 " rpy="0. 0. 0."/>
+      <mass value="0.61241"/>
+      <inertia ixx="0.0006883" ixy="-0.0000044" ixz="-0.0000265" iyy="0.0008747" iyz="-0.0000006" izz="0.0006657"/>
+    </inertial>
+    <visual>
+      <origin xyz="0. 0. -0." rpy="-0. -0. -0."/>
+      <geometry>
+        <mesh filename="package://arm_left_description/meshes/j4_Link_02_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0. 0. -0." rpy="-0. -0. -0."/>
+      <geometry>
+        <mesh filename="package://arm_left_description/meshes/j4_Link_02_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="j5_Link_L">
+    <inertial>
+      <origin xyz="0. -0.068149 0.018232" rpy="0. 0. 0."/>
+      <mass value="0.67991"/>
+      <inertia ixx="0.0018403" ixy="0." ixz="0." iyy="0.0009891" iyz="0.0005627" izz="0.0013908"/>
+    </inertial>
+    <visual>
+      <origin xyz="0. -0. -0." rpy="0.0000001 0. -0.0000001"/>
+      <geometry>
+        <mesh filename="package://arm_left_description/meshes/j5_Link_02_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0. -0. -0." rpy="0.0000001 0. -0.0000001"/>
+      <geometry>
+        <mesh filename="package://arm_left_description/meshes/j5_Link_02_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="j6_Link_L">
+    <inertial>
+      <origin xyz="-0. 0. 0.052089" rpy="0. 0. 0."/>
+      <mass value="0.46058"/>
+      <inertia ixx="0.0003679" ixy="0.0000088" ixz="0." iyy="0.0003859" iyz="0." izz="0.0002959"/>
+    </inertial>
+    <visual>
+      <origin xyz="0. -0. 0." rpy="-0. -0. 0."/>
+      <geometry>
+        <mesh filename="package://arm_left_description/meshes/j6_Link_02_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0. -0. 0." rpy="-0. -0. 0."/>
+      <geometry>
+        <mesh filename="package://arm_left_description/meshes/j6_Link_02_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+</robot>

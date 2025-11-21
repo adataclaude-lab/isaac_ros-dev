@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="arm_dualarm">
+    <xacro:arg name="initial_positions_file" default="initial_positions.yaml" />
+
+    <!-- Import arm_dualarm urdf file -->
+    <xacro:include filename="$(find dualarm_description)/urdf/arm_dualarm.urdf" />
+
+    <!-- Import control_xacro -->
+    <xacro:include filename="arm_dualarm.ros2_control.xacro" />
+
+
+    <xacro:arm_dualarm_ros2_control name="FakeSystem" initial_positions_file="$(arg initial_positions_file)"/>
+
+</robot>
