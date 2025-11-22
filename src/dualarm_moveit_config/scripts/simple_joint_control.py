@@ -106,7 +106,7 @@ def main(args=None):
                 )
 
             elif mode == 'test':
-                # 測試動作
+                # 測試動作 - 雙臂輕微抬起
                 controller.get_logger().info('執行測試動作...')
                 controller.move_to_position(
                     [0.0, -0.5, 0.5, 0.0, 0.5, 0.0],
@@ -114,10 +114,110 @@ def main(args=None):
                     duration_sec=3.0
                 )
 
+            elif mode == 'wave':
+                # 揮手動作
+                controller.get_logger().info('執行揮手動作...')
+                import time
+
+                # 抬起右臂
+                controller.move_to_position(
+                    [0.0, 0.0, 0.0, 0.0, 0.0, 0.0],  # 左臂保持不動
+                    [0.0, -1.0, 1.5, 0.0, 0.5, 0.0],  # 右臂抬起
+                    duration_sec=2.0
+                )
+                time.sleep(2.5)
+
+                # 揮動
+                controller.move_to_position(
+                    [0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+                    [0.5, -1.0, 1.5, 0.0, 0.5, 0.0],
+                    duration_sec=1.0
+                )
+                time.sleep(1.5)
+
+                controller.move_to_position(
+                    [0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+                    [-0.5, -1.0, 1.5, 0.0, 0.5, 0.0],
+                    duration_sec=1.0
+                )
+                time.sleep(1.5)
+
+                # 回到零位
+                controller.move_to_position(
+                    [0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+                    [0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+                    duration_sec=2.0
+                )
+
+            elif mode == 'reach':
+                # 雙臂前伸
+                controller.get_logger().info('雙臂前伸...')
+                controller.move_to_position(
+                    [0.0, -0.8, 1.2, 0.0, -0.4, 0.0],  # 左臂前伸
+                    [0.0, -0.8, 1.2, 0.0, -0.4, 0.0],  # 右臂前伸
+                    duration_sec=3.0
+                )
+
+            elif mode == 'spread':
+                # 雙臂展開
+                controller.get_logger().info('雙臂展開...')
+                controller.move_to_position(
+                    [0.8, -0.5, 0.8, 0.0, 0.0, 0.0],   # 左臂向左展開
+                    [-0.8, -0.5, 0.8, 0.0, 0.0, 0.0],  # 右臂向右展開
+                    duration_sec=3.0
+                )
+
+            elif mode == 'demo':
+                # 完整示範動作序列
+                controller.get_logger().info('執行完整示範...')
+                import time
+
+                # 1. 回零位
+                controller.get_logger().info('1. 回到零位')
+                controller.move_to_position(
+                    [0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+                    [0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+                    duration_sec=2.0
+                )
+                time.sleep(2.5)
+
+                # 2. 雙臂前伸
+                controller.get_logger().info('2. 雙臂前伸')
+                controller.move_to_position(
+                    [0.0, -0.8, 1.2, 0.0, -0.4, 0.0],
+                    [0.0, -0.8, 1.2, 0.0, -0.4, 0.0],
+                    duration_sec=2.0
+                )
+                time.sleep(2.5)
+
+                # 3. 雙臂展開
+                controller.get_logger().info('3. 雙臂展開')
+                controller.move_to_position(
+                    [0.8, -0.5, 0.8, 0.0, 0.0, 0.0],
+                    [-0.8, -0.5, 0.8, 0.0, 0.0, 0.0],
+                    duration_sec=2.0
+                )
+                time.sleep(2.5)
+
+                # 4. 回到零位
+                controller.get_logger().info('4. 回到零位')
+                controller.move_to_position(
+                    [0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+                    [0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+                    duration_sec=2.0
+                )
+
             else:
-                controller.get_logger().info('未知模式。使用: home, test')
+                controller.get_logger().info('未知模式')
+                controller.get_logger().info('可用模式:')
+                controller.get_logger().info('  home   - 回到零位')
+                controller.get_logger().info('  test   - 簡單測試動作')
+                controller.get_logger().info('  wave   - 右臂揮手')
+                controller.get_logger().info('  reach  - 雙臂前伸')
+                controller.get_logger().info('  spread - 雙臂展開')
+                controller.get_logger().info('  demo   - 完整示範序列')
         else:
-            controller.get_logger().info('使用方式: simple_joint_control.py [home|test]')
+            controller.get_logger().info('使用方式: simple_joint_control.py [home|test|wave|reach|spread|demo]')
 
         # 等待一段時間讓軌跡執行
         rclpy.spin_once(controller, timeout_sec=5.0)
