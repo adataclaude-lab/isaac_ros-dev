@@ -8,7 +8,8 @@
   <license>MIT</license>
 
   <depend>rclpy</depend>
-  <depend>moveit_py</depend>
+  <!-- moveit_py only needed for plan_and_publish and random_move_planner -->
+  <!-- <depend>moveit_py</depend> -->
   <depend>geometry_msgs</depend>
   <depend>moveit_msgs</depend>
   <depend>sensor_msgs</depend>
