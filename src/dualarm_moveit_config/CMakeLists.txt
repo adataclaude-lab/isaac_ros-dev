@@ -18,7 +18,9 @@ install(FILES .setup_assistant DESTINATION share/${PROJECT_NAME})
 # Install scripts
 if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/scripts")
   install(
-    PROGRAMS scripts/simple_ee_control.py
+    PROGRAMS
+      scripts/simple_ee_control.py
+      scripts/simple_joint_control.py
     DESTINATION lib/${PROJECT_NAME}
   )
 endif()
